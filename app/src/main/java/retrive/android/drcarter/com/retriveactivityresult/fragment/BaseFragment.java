@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.HasComponent;
 
 public abstract class BaseFragment extends Fragment {
 
@@ -21,5 +22,10 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(getLayoutResId(), container, false);
         ButterKnife.bind(this, view);
         return view;
+    }
+
+    @SuppressWarnings("unchecked")
+    protected <C> C getComponent(Class<C> componentType) {
+        return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
     }
 }

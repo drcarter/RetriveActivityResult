@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import retrive.android.drcarter.com.retriveactivityresult.NameInputActivity;
@@ -19,8 +21,12 @@ import retrive.android.drcarter.com.retriveactivityresult.common.Constants;
 import retrive.android.drcarter.com.retriveactivityresult.common.EventBus;
 import retrive.android.drcarter.com.retriveactivityresult.common.KeySets;
 import retrive.android.drcarter.com.retriveactivityresult.event.ActivityResultEvent;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.MainActivityComponent;
 
 public class MainFragment extends BaseFragment {
+
+    @Inject
+    EventBus eventBus;
 
     @Bind(R.id.text_result)
     TextView textResult;
@@ -32,12 +38,15 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        EventBus.getInstance().register(this);
+        getComponent(MainActivityComponent.class).inject(this);
+        eventBus.register(this);
+//        EventBus.getInstance().register(this);
     }
 
     @Override
     public void onDestroyView() {
-        EventBus.getInstance().unregister(this);
+//        EventBus.getInstance().unregister(this);
+        eventBus.unregister(this);
         super.onDestroyView();
     }
 

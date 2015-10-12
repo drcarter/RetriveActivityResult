@@ -1,11 +1,13 @@
 package retrive.android.drcarter.com.retriveactivityresult;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.widget.EditText;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 import retrive.android.drcarter.com.retriveactivityresult.common.KeySets;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.ActivityComponent;
 
 public class NameInputActivity extends BaseActivity {
 
@@ -15,6 +17,16 @@ public class NameInputActivity extends BaseActivity {
     @Override
     protected int getContentViewResource() {
         return R.layout.activity_name_input;
+    }
+
+    @Override
+    protected ActivityComponent getInitializeCompoent() {
+        return null;
+    }
+
+    @Override
+    protected void onInject(@Nullable ActivityComponent component) {
+
     }
 
     @SuppressWarnings("unused")

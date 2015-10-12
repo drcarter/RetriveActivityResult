@@ -2,24 +2,29 @@ package retrive.android.drcarter.com.retriveactivityresult;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.squareup.otto.Bus;
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 import retrive.android.drcarter.com.retriveactivityresult.common.EventBus;
 import retrive.android.drcarter.com.retriveactivityresult.event.ActivityResultEvent;
 import retrive.android.drcarter.com.retriveactivityresult.fragment.MainFragment;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.ActivityComponent;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.DaggerMainActivityComponent;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.MainActivityComponent;
+import retrive.android.drcarter.com.retriveactivityresult.internal.di.module.MainActivityModule;
 
 public class MainActivity extends BaseActivity {
+
+    @Inject
+    EventBus eventBus;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -27,6 +32,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int getContentViewResource() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected ActivityComponent getInitializeCompoent() {
+        return DaggerMainActivityComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .mainActivityModule(new MainActivityModule(this))
+                .build();
+    }
+
+    @Override
+    protected void onInject(@Nullable ActivityComponent component) {
+        if (component != null) {
+            ((MainActivityComponent) component).inject(this);
+        }
     }
 
     @Override
@@ -39,7 +59,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
-        EventBus.getInstance().post(ActivityResultEvent.create(requestCode, resultCode, data));
+//        EventBus.getInstance().post(ActivityResultEvent.create(requestCode, resultCode, data));
+        eventBus.post(ActivityResultEvent.create(requestCode, resultCode, data));
     }
 
     @Override
