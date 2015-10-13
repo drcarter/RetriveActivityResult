@@ -1,4 +1,4 @@
-package retrive.android.drcarter.com.retriveactivityresult.fragment;
+package retrive.android.drcarter.com.retriveactivityresult.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

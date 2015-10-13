@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import retrive.android.drcarter.com.retriveactivityresult.base.activity.BaseActivity;
 import retrive.android.drcarter.com.retriveactivityresult.common.KeySets;
 import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.ActivityComponent;
 

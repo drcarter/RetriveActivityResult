@@ -1,10 +1,11 @@
-package retrive.android.drcarter.com.retriveactivityresult;
+package retrive.android.drcarter.com.retriveactivityresult.base.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import retrive.android.drcarter.com.retriveactivityresult.App;
 import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.ActivityComponent;
 import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.ApplicationComponent;
 import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.HasComponent;

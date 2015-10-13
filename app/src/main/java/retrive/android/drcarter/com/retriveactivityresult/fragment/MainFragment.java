@@ -17,6 +17,7 @@ import butterknife.Bind;
 import butterknife.OnClick;
 import retrive.android.drcarter.com.retriveactivityresult.NameInputActivity;
 import retrive.android.drcarter.com.retriveactivityresult.R;
+import retrive.android.drcarter.com.retriveactivityresult.base.fragment.BaseFragment;
 import retrive.android.drcarter.com.retriveactivityresult.common.Constants;
 import retrive.android.drcarter.com.retriveactivityresult.common.EventBus;
 import retrive.android.drcarter.com.retriveactivityresult.common.KeySets;

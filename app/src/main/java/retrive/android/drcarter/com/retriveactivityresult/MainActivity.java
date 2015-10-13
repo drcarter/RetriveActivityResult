@@ -13,6 +13,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import retrive.android.drcarter.com.retriveactivityresult.base.activity.BaseActivity;
 import retrive.android.drcarter.com.retriveactivityresult.common.EventBus;
 import retrive.android.drcarter.com.retriveactivityresult.event.ActivityResultEvent;
 import retrive.android.drcarter.com.retriveactivityresult.fragment.MainFragment;
