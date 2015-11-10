@@ -41,12 +41,10 @@ public class MainFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         getComponent(MainActivityComponent.class).inject(this);
         eventBus.register(this);
-//        EventBus.getInstance().register(this);
     }
 
     @Override
     public void onDestroyView() {
-//        EventBus.getInstance().unregister(this);
         eventBus.unregister(this);
         super.onDestroyView();
     }

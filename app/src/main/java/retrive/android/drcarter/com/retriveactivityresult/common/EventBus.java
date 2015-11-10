@@ -5,6 +5,9 @@ import android.os.Looper;
 
 import com.squareup.otto.Bus;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class EventBus extends Bus {
 
     private Handler handler = new Handler(Looper.getMainLooper());
