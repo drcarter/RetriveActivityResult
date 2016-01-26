@@ -10,8 +10,13 @@ public class EventBus extends Bus {
     private static EventBus instance;
 
     public static EventBus getInstance() {
-        if (instance == null)
-            instance = new EventBus();
+        if (instance == null) {
+            synchronized (EventBus.class) {
+                if (instance == null) {
+                    instance = new EventBus();
+                }
+            }
+        }
         return instance;
     }
 
