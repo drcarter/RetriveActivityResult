@@ -1,5 +1,7 @@
 package retrive.android.drcarter.com.retriveactivityresult.internal.di.module;
 
+import com.squareup.otto.Bus;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -11,7 +13,7 @@ public class EventBusModule {
 
     @Singleton
     @Provides
-    EventBus provideEventBus() {
+    Bus provideEventBus() {
         return new EventBus();
     }
 }

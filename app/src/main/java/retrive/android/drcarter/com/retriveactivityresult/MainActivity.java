@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.squareup.otto.Bus;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
@@ -25,7 +27,7 @@ import retrive.android.drcarter.com.retriveactivityresult.internal.di.module.Mai
 public class MainActivity extends BaseActivity {
 
     @Inject
-    EventBus eventBus;
+    Bus bus;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -61,7 +63,7 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
 //        EventBus.getInstance().post(ActivityResultEvent.create(requestCode, resultCode, data));
-        eventBus.post(ActivityResultEvent.create(requestCode, resultCode, data));
+        bus.post(ActivityResultEvent.create(requestCode, resultCode, data));
     }
 
     @Override

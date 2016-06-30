@@ -1,5 +1,7 @@
 package retrive.android.drcarter.com.retriveactivityresult.internal.di.component;
 
+import com.squareup.otto.Bus;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -16,6 +18,6 @@ import retrive.android.drcarter.com.retriveactivityresult.internal.di.module.Eve
 )
 public interface ApplicationComponent {
 
-        EventBus getEventBus();
+        Bus getEventBus();
 
 }

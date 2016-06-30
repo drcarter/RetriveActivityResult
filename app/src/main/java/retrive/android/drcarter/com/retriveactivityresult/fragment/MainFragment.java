@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
@@ -27,7 +28,7 @@ import retrive.android.drcarter.com.retriveactivityresult.internal.di.component.
 public class MainFragment extends BaseFragment {
 
     @Inject
-    EventBus eventBus;
+    Bus eventBus;
 
     @Bind(R.id.text_result)
     TextView textResult;
